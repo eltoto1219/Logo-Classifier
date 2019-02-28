@@ -1,14 +1,16 @@
 # Logo-Classifier
 
 List of sciprts and their purposes:
-
+\n
 Analyze accuracy: 
   -This script evalutates the CNN given trained weights for an abitrary epoch and evaluates the test set.
+\n
 Analyze loss:
   -This script plots the cross entropy loss against the number of epochs my model was trained on 
 Image eval:
   -This script contains training and testing functions for the CNN given input training and testing data
   -This script can also start training at a given epoch. 
+\n
 Logo_NN: 
   -The actual convolutional nueral network
 Run:
