@@ -1,7 +1,11 @@
 # Logo-Classifier
 
 List of sciprts and their purposes:
-\n
+
+
+
+
+
 Analyze accuracy: 
   -This script evalutates the CNN given trained weights for an abitrary epoch and evaluates the test set.
 \n
