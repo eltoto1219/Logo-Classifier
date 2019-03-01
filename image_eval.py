@@ -48,22 +48,26 @@ def training(net, device, train_loader, optimizer, n_epoch, save_interval, loss_
                 'loss history': total_loss
             }, p)
 
+
+#######
+
+#######
 def testing(net, device, test_loader, loss_func):
+    test_loss = []
     net.eval()
-    test_loss = 0
     correct = 0
     with torch.no_grad():
         tqdm.write("\r Calculating the accuracy: ", end = "")
         for i,  (sample, g_truth) in enumerate(tqdm(test_loader)):
             image, label = sample.to(device), g_truth.to(device)
             pred_vec = net(image)
-            test_loss += loss_func(pred_vec, label).item() #  summing up the loss
+            loss = loss_func(pred_vec, label).item() #  summing up the loss
             pred = pred_vec.argmax(dim=1, keepdim=True) # get the index of the max log-probability
             correct += pred.eq(label.view_as(pred)).sum().item()
-
-    test_loss /= len(test_loader.sampler)
+            test_loss.append(loss)
     acc = correct/len(test_loader.sampler)*100
     tqdm.write("Accuracy: {} Correct {}\n".format(acc, correct), end = "")
+    return test_loss
 
     
 
